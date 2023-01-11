@@ -47,9 +47,11 @@
         public function calculSolde(){
             $this->setSolde(getSolde()+$this->getDepot());
         }
-
+        //création d'une fonction pour établir un retrait entre les deux comptes via un destinataire et un montant à déterminer. 
         public function virement($destinataire, $montant){
+        // il y a un retrait du montant choisi d'un compte
             $this->retrait($montant);
+        //qui donne lieu à un depot chez le destinataire
             $destinataire->depot($montant);
         }
 
