@@ -51,7 +51,7 @@
         public function virement($destinataire, $montant){
         // il y a un retrait du montant choisi d'un compte
             $this->retrait($montant);
-        //qui donne lieu à un depot chez le destinataire
+        //qui donne lieu à un depot chez le destinataire définit dans la fonction par $destinataire
             $destinataire->depot($montant);
         }
 
