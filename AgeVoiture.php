@@ -6,9 +6,10 @@
 // Utiliser un attribut pour le nom de la voiture et un attribut pour son année d’immatriculation
 
     class AgeVoiture{
-
-        private $nom;
-        private $annee;
+        
+        //ajouter des underscores pour rendre priver les attributs
+        private $_nom;
+        private $_annee;
         
         public function getAnnee(){
             return $this->_annee;
@@ -36,14 +37,14 @@
         }
     }
 
-    $Total=new AgeVoiture();
-    $Total->setAnnee(1970);
-    $Total->setNom("Jaguard");
-    echo $Total->message();
+    $total=new AgeVoiture();
+    $total->setAnnee(1970);
+    $total->setNom("Jaguard");
+    echo $total->message();
 
-    $Total2=new AgeVoiture();
-    $Total2->setAnnee(2010);
-    $Total2->setNom("308");
-    echo $Total2->message();
+    $total2=new AgeVoiture();
+    $total2->setAnnee(2010);
+    $total2->setNom("308");
+    echo $total2->message();
 
 ?>
