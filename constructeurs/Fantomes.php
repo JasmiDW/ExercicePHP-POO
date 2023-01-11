@@ -19,6 +19,12 @@
         private $_velocite=1;
         private $_pv=10;
 
+        public function __construct($nom,$couleur){
+            $this->setNom($nom);
+            $this->setCouleur($couleur);
+
+        }
+
         public function getNom(){
             return $this->_nom;
         }
@@ -33,12 +39,6 @@
 
         public function setCouleur($couleur){
             $this->_couleur=$couleur;
-        }
-
-        public function __construct($nom,$couleur){
-            $this->setNom($nom);
-            $this->setCouleur($couleur);
-
         }
 
         public function getPV(){
@@ -58,26 +58,36 @@
         }
 
         public function boire($potion){
+            //on attribut à setPV la valeur récupérée dans getPV() + la valeur potion et on retourne la valeur entière pour la function
+            // Le setter, setPV(), permet de changer la valeur de la propriété PV.
             $this->setPV($this->getPV() + $potion);
         }
 
-        // public function perdre($blessure){
-        //     $this->setPV($this->getPV()-$blessure);
-        //     if ($this->setPV() == 0){
-        //         return "Le fantome est mort :(";
-        //     }
-        // }
-
-        public function message(){
-            return "".$this->getNom(). " a ".$this->boire(). " PV<br>";
+        public function perdre($blessure){
+            $this->setPV($this->getPV()-$blessure);
+        
         }
+        
+        public function message(){
+            if($this->getPV() < 0){
+                return "".$this->getNom().", le petit fantome ".$this->getCouleur(). " est mort :(<br>";
+            }else{
+                //on récupere la nouvelle valeur de getPV() établit après la fonction boire()
+                // Cette méthode est un getter qui permet de lire la valeur de la propriété PV sans pouvoir la modifier.
+                return "".$this->getNom(). ", le petit fantome ".$this->getCouleur()." a ".$this->getPV(). " PV et ".$this->getVelocite()." en vélocité.<br>";
+            }
 
-    }
+        }
+}
+    $dolly=new Fantomes("Dolly","rose");
+    $dolly->boire(11);
+    $dolly->setVelocite(2);
+    echo $dolly->message();
 
     $clyde=new Fantomes("Clyde","jaune");
+    $clyde->perdre(5);
+    $clyde->perdre(10);
     echo $clyde->message();
 
-    $dolly=new Fantomes("Dolly","rose");
-    $dolly=boire(7);
-    echo $dolly->message();
+    
 ?>
