@@ -47,15 +47,13 @@ Méthodes : Constructeur, getters/setters, Attaquer, etatPerso -->
             $this->_xp= $xp;
         }
 
-        public function calculPV($force){
+        public function perdsPV($force){
             $this->setPV($this->getPV()-$force); 
         }
 
         public function attaquer($adversaire,$cb){
-            $this->calculPV($cb);
-            $adversaire->setNom($this->getNom());
+            $adversaire->perdsPV($cb);
         }
-
 
         public function message(){
             return "Les PV de ".$this->getNom(). " sont de ".$this->getPV(). " PV.<br>";
