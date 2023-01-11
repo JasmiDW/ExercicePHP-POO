@@ -3,11 +3,9 @@
 
     class Voiture{
         
-        //ajouter des underscores pour rendre priver les attributs
+        //ajouter des underscores pour rendre privés les attributs
         private $_nom;
         private $_annee;
-
-        
         
         public function getAnnee(){
             return $this->_annee;
