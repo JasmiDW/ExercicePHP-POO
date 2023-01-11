@@ -64,7 +64,7 @@ Méthodes : Constructeur, getters/setters, Attaquer, etatPerso -->
 
     $gandalf= new Bataille("Gandalf",100);
     $frodon=new Bataille("Frodon",2);
-    $frodon->attaquer($frodon,10);
+    $gandalf->attaquer($frodon,10);
     echo $gandalf->message();
     echo $frodon->message();
 
