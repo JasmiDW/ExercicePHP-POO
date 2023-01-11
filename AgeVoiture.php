@@ -11,37 +11,39 @@
         private $annee;
         
         public function getAnnee(){
-            return $this ->_annee;
+            return $this->_annee;
         }
 
         public function setAnnee($new_annee){
-            $this ->_annee=$new_annee;
+            $this->_annee=$new_annee;
         }
 
         public function getNom(){
-            return $this ->_nom;
+            return $this->_nom;
         }
 
         public function setNom($new_nom){
-            $this ->_nom=$new_nom;
+            $this->_nom=$new_nom;
         }
-
+        // une fonction doit seulement faire une seule chose
         public function calculAge(){
             $age = date('Y') - $this -> getAnnee();
-            return "La ".$this -> getNom(). " a $age ans<br>";
+            return $age;
+        }
 
+        public function message(){
+            return "La ".$this->getNom(). " a ".$this->calculAge(). " ans<br>";
         }
     }
 
     $Total=new AgeVoiture();
-    
     $Total->setAnnee(1970);
     $Total->setNom("Jaguard");
-    echo $Total->calculAge();
+    echo $Total->message();
 
     $Total2=new AgeVoiture();
     $Total2->setAnnee(2010);
     $Total2->setNom("308");
-    echo $Total2->calculAge();
+    echo $Total2->message();
 
 ?>
