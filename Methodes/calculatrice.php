@@ -20,6 +20,8 @@
             // echo $calcul;
             $this -> setTotal($calcul);
         }
+
+        
     }
 
     $Total=new Calculatrice;
