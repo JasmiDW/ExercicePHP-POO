@@ -50,13 +50,18 @@ Méthodes : Constructeur, getters/setters, Attaquer, etatPerso -->
         public function perdsPV($force){
             $this->setPV($this->getPV()-$force); 
         }
-
+        //on détermine l'adversaire dans la fonction directement, fonction qui sera appelée plus tard en appelant plus précisément l'adversaire et les attributs qui lui appartient
         public function attaquer($adversaire,$cb){
+            //détermine que l'adversaire recoit la function perdsPV()
             $adversaire->perdsPV($cb);
         }
 
         public function message(){
+            if ($this->getPV() <=0){
+                return "".$this->getNom().", le hobbit est mort :(<br>";
+            }else {
             return "Les PV de ".$this->getNom(). " sont de ".$this->getPV(). " PV.<br>";
+            }
         }
     }
 
