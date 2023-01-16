@@ -2,6 +2,7 @@
 Assigne des valeurs à tes attributs de la classe, automatiquement, c'est à dire sans devoir appeler les setters toi-même. -->
 
 <?php
+
     require_once 'Fantomes.php';
 
     $infos=['nom' => 'Dolly',"couleur" => 'rose'];
