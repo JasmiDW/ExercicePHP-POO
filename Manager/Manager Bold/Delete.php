@@ -4,13 +4,13 @@
     require_once 'Fantomes.php';
     require_once 'Manager.php';
 
-    $infos=new Fantomes(['nom' => $_POST['nom'],'couleur' => $_POST['couleur'], 'pv' => $_POST['pv'], 'velocite' => $_POST['velocite']]);
- 
+    $id=$_GET['id'];
+
     $bdd = new PDO('mysql:host=localhost;dbname=fantomes', 'root', '');
     $Manager = new Manager($bdd);
-    $Manager->delete($infos);
+    $Manager->delete($id);
 
-    echo "".$_POST['nom'].", le fantome a bien été effacé";
+    echo "Le fantome a bien été effacé";
     echo "</br> <a href='index.php'>Accueil</a>";
 
 ?>     

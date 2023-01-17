@@ -11,6 +11,7 @@ $manager = new Manager($bdd);
 
 // Récupére les informations de l'enregistrement correspondant à l'ID spécifié ($id). Ces informations sont stockées dans la variable $info.
 $info = $manager->getID($id);
+var_dump($info)
 
 ?>
 
@@ -19,5 +20,6 @@ $info = $manager->getID($id);
     <label>Couleur</label><input type="text" name="couleur" value= "<?php  echo $info['couleur'] ?>">
     <label>PV</label><input type="text" name="pv" value= "<?php  echo $info['pv'] ?>">
     <label>Velocité</label><input type="text" name="velocite" value= "<?php  echo $info['velocite'] ?>">
+    <input type="hidden" name="id" value="<?php echo $id;?>">
     <input type="submit">
 </form>
