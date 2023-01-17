@@ -22,7 +22,7 @@ Appelez cette nouvelle méthode. -->
 
     // Fonction d'autoload qui charge les classes à partir d'un répertoire spécifique
     function autoloadClasses($class) {
-        require $class.'.php';
+    require $class.'.php';
     }
 
     $ghost = new Poltergeist();//on instancie la classe
