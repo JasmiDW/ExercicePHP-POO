@@ -18,32 +18,12 @@ Appelez cette nouvelle méthode. -->
 
 <?php
 
-    class Fantome{
+    spl_autoload_register('autoloadClasses');
 
-        private $_type;
-
-         //set donne la valeur à l'attribut
-        public function setType($new_type){
-            $this ->_type=$new_type;
-        }
-
-        public function getType(){
-            return $this->_type;
-        }
-
-        public function parler(){
-            return "Le ".$this-> getType()." parle : Bouhouhou ! <br>";
-        }
-
+    // Fonction d'autoload qui charge les classes à partir d'un répertoire spécifique
+    function autoloadClasses($class) {
+        require $class.'.php';
     }
-
-    class Poltergeist extends Fantome {
-
-        public function colere(){
-            return "Le ".$this-> getType()." lance des assiettes ! ";
-        }
-    }
-
 
     $ghost = new Poltergeist();//on instancie la classe
     $ghost-> setType("fantome");
