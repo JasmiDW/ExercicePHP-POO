@@ -53,9 +53,9 @@ require_once 'Bdd.php';
 
     <?php
 
-        echo CompteurFantomes::$CompteurFantomes;// affiche le contenu de la propriété compteurFantomes
-        echo "<br>";
-        $test1 = new CompteurFantomes;
+        // echo CompteurFantomes::$CompteurFantomes;// affiche le contenu de la propriété compteurFantomes
+        // echo "<br>";
+        $Manager = new CompteurFantomes;
         $test2 = new CompteurFantomes;
         $test3 = new CompteurFantomes;
     //   echo CompteurFantomes::getCompteurFantomes();// affiche la valeur renvoyée par la méthode getCompteurFantomes()
