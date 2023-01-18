@@ -9,8 +9,8 @@
 
     }
 
-    public static function getCompteurFantomes(){
-
+    public static function add($fantomes){
+      $this->fantomes[] = $fantomes;
           return self::$CompteurFantomes;
 
     }
