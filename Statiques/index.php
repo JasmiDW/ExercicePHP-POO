@@ -1,21 +1,78 @@
-<!-- Les méthodes statiques en PHP sont des méthodes qui peuvent être appelées sur une classe plutôt que sur une instance de cette classe. Elles sont déclarées en utilisant le mot-clé "static" avant le type de retour de la fonction.
+<!-- créer une page index.php, affichant un tableau HTML contenant les fantômes contenu dans la BD
+créer une page fantome.php pouvoir créér un fantôme
+pouvoir modifier un fantôme
+pouvoir supprimer un fantôme
+Le tout avec une classe fantome, un manager, de l’hydratation, ... -->
 
--->
 
 <?php
 
+require_once 'CompteurFantomes.php';
 require_once 'Fantomes.php';
 require_once 'Manager.php';
+require_once 'Bdd.php';
 
-$infos=new Fantomes(['nom' => 'Casper','couleur' => 'blanc', 'pv' => 10, 'velocite' => 1, 'id' => 1]);
-// $casper=new Fantome($infos);
-// $casper->message();
-// var_dump($infos);
+    $requete=$bdd->prepare("SELECT id, nom, couleur, pv, velocite 
+                            FROM infos");
 
-$bdd = new PDO('mysql:host=localhost;dbname=fantomes', 'root', '');
-$casperManager = new Manager($bdd);
-$casperManager->add($infos);
-// var_dump($casperManager);
+    $requete->execute();
+    $result = $requete->fetchAll();
+    ?>
 
+    <h1>Les fantomes</h1>
+    <form action="Ajout.php" method="post">
+    <input type="submit" value="Ajouter un fantome">
+    </form>
 
-?>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Couleur</th>
+            <th>PV</th>
+            <th>Vélocité</th>
+        </thead>
+        <tbody>
+        <?php
+                foreach($result as $info){
+            ?>
+            <tr>
+                <td><?= $info['id'] ?></td>
+                <td><?= $info['nom'] ?></td>
+                <td><?= $info['couleur'] ?></td>
+                <td><?= $info['pv'] ?></td>
+                <td><?= $info['velocite'] ?></td>
+                <td><a href="update.php?id=<?php echo $info['id']?>">Modifier</a></td>
+                <td><a href="delete.php?id=<?php echo $info['id']?>">Supprimer</a></td>
+            </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+
+    <?php
+
+        echo CompteurFantomes::$CompteurFantomes;// affiche le contenu de la propriété compteurFantomes
+        echo "<br>";
+        $test1 = new CompteurFantomes;
+        $test2 = new CompteurFantomes;
+        $test3 = new CompteurFantomes;
+    //   echo CompteurFantomes::getCompteurFantomes();// affiche la valeur renvoyée par la méthode getCompteurFantomes()
+        echo CompteurFantomes::message();
+
+    ?>
+    <!-- <h1>Les fantomes</h1>
+
+    <?php
+    // foreach ($result as $info) {
+    //     $nom= $info["nom"]; 
+    //     $couleur = $info["couleur"];
+    //     $pv = $info["pv"];
+    //     $velocite = $info["velocite"];
+
+    ?>
+    
+    <?php
+    // echo "$nom, le fantome $couleur a $pv point de vie et $velocite en vélocité. <br>";
+    // } --> -->

@@ -1,4 +1,4 @@
-<!-- Créer un manager et ajouter un fantôme dans une base de données -->
+
 
 <?php
 
@@ -17,9 +17,12 @@
         
         //HYDRATATION\\
         public function hydrate($donnees){
-            foreach ($donnees as $key => $value){.
+            foreach ($donnees as $key => $value){
+            // On récupère le nom du setter correspondant à l'attribut.
             $method = 'set'.ucfirst($key);
+            // Si le setter correspondant existe.
             if (method_exists($this, $method)){
+                // On appelle le setter.
                 $this->$method($value);
             }else{
                 echo $method." introuvable";
@@ -67,9 +70,9 @@
             $this->_id=$id;
         }
 
-        public function message(){
-            echo "".$this->getNom(). ", le petit fantome ".$this->getCouleur()." a ".$this->getPV(). " PV, ".$this->getVelocite()." en vélocité et " .$this->getID(). " en ID.<br>";
-            }  
+        // public function message(){
+        //     echo "".$this->getNom(). ", le petit fantome ".$this->getCouleur()." a ".$this->getPV(). " PV, ".$this->getVelocite()." en vélocité et " .$this->getID(). " en ID.<br>";
+        //     }  
 
     }
 ?>
