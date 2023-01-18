@@ -54,25 +54,6 @@
         }
     }
 
-    class CompteurFantomes {
-
-        public static $CompteurFantomes = 0;
-        public function __construct()
-        {
-          // On incrémente la variable $pointDeVie qui appartient à la classe (donc utilisation du mot-clé self).
-          self::$CompteurFantomes++;
-        }
-        public static function getID() // Méthode statique qui renverra la valeur du compteur.
-        {
-              return self::$CompteurFantomes;
-        }
-        public function message(){
-          return "Il y a " .self::$CompteurFantomes. " fantomes en tout.";
-        }
-
-      
-      
-
-}
+   
 
 ?>
