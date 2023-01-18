@@ -47,7 +47,7 @@ A chaque tour afficher l’état du personnage (nom, pb) ainsi que l’arme util
         }
 
         public function changeArme($arme){
-            $this->getArme($arme);
+            $this->setArme($arme);
 
         }
 
@@ -64,7 +64,7 @@ A chaque tour afficher l’état du personnage (nom, pb) ainsi que l’arme util
         }
 
         public function message(){
-            return " Je m'appelle ".$this->getNom(). ", j'ai " .$this->getPV()." PV et j'ai cette arme : " .$this->changeArme($this->getArme()). "<br>";
+            return " Je m'appelle ".$this->getNom(). ", j'ai " .$this->getPV()." PV et j'ai cette arme : " .$this->getArme(). "<br>";
         }
 
         
