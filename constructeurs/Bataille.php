@@ -14,6 +14,7 @@ Méthodes : Constructeur, getters/setters, Attaquer, etatPerso -->
 
 <?php
     class Bataille{
+        
         private $_nom;
         private $_pv;
         private $_xp;
