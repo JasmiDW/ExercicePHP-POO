@@ -39,6 +39,9 @@ Afficher les états à chaque changement. -->
             $this->_couleur=$new_couleur;
 
         }
+
+        // Les méthodes magiques reconnaissables en PHP au fait que leur nom commence par un double underscore __. 
+        
         public function __toString(){
             return "Le ballon " .$this-> getCouleur(). " s'appelle " .$this->getNom(). ".<br>";
         }
