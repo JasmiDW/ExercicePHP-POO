@@ -1,6 +1,5 @@
 <?php
 //  se connecte à la base de données et récupère les billets.
-
     function getPosts(){
 
         require_once 'bdd.php';
@@ -40,4 +39,7 @@
         
     }
 
+
 ?>
+
+

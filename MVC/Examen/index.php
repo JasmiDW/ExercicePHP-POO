@@ -18,7 +18,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         	post($id);
 
     	} else {
-        	echo 'Erreur : aucun identifiant de billet envoyé';
+        	echo "Erreur : le post n'existe pas";
 
         	die;
     	}
