@@ -32,7 +32,7 @@ on veut interroger la bdd et afficher les résultats, aller chercher la listes d
   // we're adding an entry for the new controller and its actions
   // vérification du nom du controller et de l'action donné en parametre sont valides en les comparant avec un tableau de controleurs et d'actions valides. 
   $controllers = array('pages' => ['home', 'error', 'connexion','inscription'],
-                       'posts' => ['index', 'show','delete', 'modify'],
+                       'posts' => ['index', 'show','delete', 'update','add','add_traitement','update_traitement'],
                        'users' => ['profil', 'error']);
   
   if (array_key_exists($controller, $controllers)) {

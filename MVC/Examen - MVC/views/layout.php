@@ -17,7 +17,7 @@
                             <a href='?controller=posts&action=index' title="Accueil">Accueil</a>
                         </li>
                         <li>
-                        <a href='?controller=posts&action=index'>Articles</a>
+                        <a href='?controller=posts&action=add'>Ajouter un article</a>
                         </li>
                         <li>
                             <a href='?controller=pages&action=connexion' title="Connexion">Connexion</a>
