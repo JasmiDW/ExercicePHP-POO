@@ -21,12 +21,6 @@
     public function getTitle() {
       return $this->title;
     }
-    public function getContent() {
-      return $this->content;
-    }
-    public function getDate() {
-      return $this->date;
-    }
 
     public static function all() {
       $list = [];

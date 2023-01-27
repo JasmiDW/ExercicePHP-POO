@@ -1,7 +1,6 @@
 <!-- 5eme étape : CREATION D'UNE VIEW
 ici on utilise les variables prédéfinies précédemment pour signaler la bonne connexion de l'utilisateur -->
 
+<p><a href="?controller=posts&action=index">La liste des articles</a></p>
 
-<p>Hello there <?php echo $first_name . ' ' . $last_name; ?>!<p>
-
-<p>You successfully landed on the home page. Congrats!</p>
+<p>C'est bien tu es écolo !</p>
