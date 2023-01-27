@@ -5,5 +5,7 @@
     echo "<h2>$post->title</h2>";
     echo "$post->date<br><br>";
     echo "$post->content";
-    
-?>
+
+?>    
+    <p><a href='?controller=posts&action=delete&id=<?php echo $post->id; ?>'>Supprimer l'article</a></p>
+    <p><a href='?controller=posts&action=update&id=<?php echo $post->id; ?>'>Modifier l'article</a></p>
