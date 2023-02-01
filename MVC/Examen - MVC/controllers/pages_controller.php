@@ -10,7 +10,7 @@ Le nom d'une view est défini selon le nom de son action que l'on range en desso
   class PagesController {
     
     public function home() {
-      
+
       require_once('views/pages/home.php');
     }
 
