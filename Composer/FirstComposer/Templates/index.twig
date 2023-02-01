@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Composer and Twig</title>
+</head>
+<body>
+   <h1>Bonjour {{ nom }}</h1>
+<ul>
+   {% for item in navigation %}
+      <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
+   {% endfor %}
+</ul>
+</body>
+</html>
