@@ -7,7 +7,9 @@
         </thead>
         <tbody>
 
-        <?php foreach($posts as $post) { ?>
+        <?php foreach($posts as $post) { 
+            
+           ?>
         <tr>
             <td> <?php echo $post->title; ?></td>
             <td> <?php echo $post->content; ?></td>

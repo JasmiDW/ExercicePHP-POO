@@ -4,11 +4,12 @@ Post::all() et Post::find() font référence au modèle Post donc quand on va ch
 
 
 <?php
+
   class PostsController {
     
     public function index() {
       // we store all the posts in a variable
-      $posts = Post::all();
+      $posts = Post_manager::all();
       require_once('views/posts/index.php');
     }
 
@@ -19,13 +20,13 @@ Post::all() et Post::find() font référence au modèle Post donc quand on va ch
         return call('pages', 'error');
 
       // we use the given id to get the right post
-      $post = Post::find($_GET['id']);
+      $post = Post_manager::find($_GET['id']);
       require_once('views/posts/show.php');
     }
 
     public function delete(){
       $id=$_GET["id"];
-      $post = Post::delete($id);
+      $post = Post_manager::delete($id);
       require_once('views/posts/delete.php');
     }
 
@@ -37,7 +38,7 @@ Post::all() et Post::find() font référence au modèle Post donc quand on va ch
     public function add_traitement(){
       if (isset($_POST["titre"]) && isset($_POST["description"]) && isset($_POST["date"]) && !empty($_POST["titre"]) && !empty($_POST["description"]) && !empty($_POST["date"])){
         
-      $post = Post::add();
+      $post = Post_manager::add();
       }else{
         if(empty($_POST["titre"])){
             echo "Titre ?!";
@@ -59,7 +60,7 @@ Post::all() et Post::find() font référence au modèle Post donc quand on va ch
       if(!isset($_GET['id']))
         return call('pages','error');
  
-      $post = Post::find($_GET['id']);
+      $post = Post_manager::find($_GET['id']);
       require_once('views/posts/update.php');
 
     }
@@ -69,8 +70,8 @@ Post::all() et Post::find() font référence au modèle Post donc quand on va ch
       if(!isset($_GET['id']))
         return call('pages','error');
 
-      $post = Post::update($id);
-      $title= $post ->getTitle();
+      $post = Post_manager::update($id);
+      $title= $post ->getTitre();
       require_once('views/posts/update_traitement.php');
     }
   }

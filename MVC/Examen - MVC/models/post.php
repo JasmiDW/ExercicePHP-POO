@@ -1,7 +1,5 @@
-<!-- CREATION DU MODELE POST : -->
-
-
 <?php
+
   class Post {
     
     // we define 3 attributes
@@ -11,113 +9,63 @@
     public $content;
     public $date;
 
-    public function __construct($id, $title, $content, $date) {
-      $this->id      = $id;
-      $this->title  = $title;
-      $this->content = $content;
-      $this->date = $date;
-    }
+    public function __construct($value = array()){
+      if(!empty($value))
+      $this->hydrate($value);
+  }
 
-    public function getTitle() {
+  public function hydrate($donnees){
+      foreach ($donnees as $key => $value){
+      // On récupère le nom du setter correspondant à l'attribut.
+      $method = 'set'.ucfirst($key);
+      // Si le setter correspondant existe.
+      if (method_exists($this, $method)){
+          // On appelle le setter.
+          $this->$method($value);
+      }else{
+          echo $method." introuvable";
+      }
+      }
+  }
+
+    // public function __construct($id, $title, $content, $date) {
+    //   $this->id      = $id;
+    //   $this->title  = $title;
+    //   $this->content = $content;
+    //   $this->date = $date;
+    // }
+
+    public function getTitre() {
       return $this->title;
     }
-    public function getContent() {
-      return $this->content;
-    }
-    public function getDate() {
-      return $this->date;
+
+    public function setTitre($title){
+        $this->title=$title;
     }
 
-    public static function all() {
-      $list = [];
-      $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM article');
-
-      // we create a list of Post objects from the database results
-      foreach($req->fetchAll() as $post) {
-        $list[] = new Post($post['id'], $post['titre'], $post['description_article'], $post['date_article']);
-      }
-
-      return $list;
+    public function getId(){
+        return $this->id;
     }
 
-    public static function find($id) {
-      $db = Db::getInstance();
-      // we make sure $id is an integer
-      $id = intval($id);
-      $req = $db->prepare('SELECT * FROM article WHERE id = :id');
-      // the query was prepared, now we replace :id with our actual $id value
-      $req->execute(array('id' => $id));
-      $post = $req->fetch();
-
-      return new Post($post['id'], $post['titre'], $post['description_article'], $post['date_article']);
+    public function setId($id){
+        $this->id=$id;
     }
 
-    public static function delete($id){
-      $db = Db::getInstance();
-      // we make sure $id is an integer
-      $id = intval($id);
-
-      $req=$db->prepare("DELETE FROM article WHERE id= :id");
-      $req->execute(array('id' => $id));
-      $post = $req->fetch();
-
-      return "$id a bien été supprimée de la base de données.";
+    public function getDescription_article(){
+        return $this->content;
     }
 
-    public static function add(){
-        $db = Db::getInstance();
-        $title = $_POST["titre"];
-        $content = $_POST["description"];
-        $date = $_POST["date"];
-        $query=$db->prepare("INSERT INTO article (titre, description_article,date_article, id_user) 
-                VALUES(:titre,:description_article, :date_article, :id_user)");
-                $id= $_POST["id_user"];
-                //On indique les bindValue du nom et du mot de passe
-                $query->bindValue(':titre',$title,PDO::PARAM_STR);
-                $query->bindValue(':description_article',$content);
-                $query->bindValue(':date_article',$date,PDO::PARAM_STR);
-                $query->bindValue(':id_user',$id,PDO::PARAM_INT);
-                $query->execute();
-
-        $post = new Post($id, $title, $content, $date);
-        return $post;     
+    public function setDescription_article($content){
+        $this->content=$content;
     }
 
-   public static function update($id){
+    public function getDate_article(){
+        return $this->_date;
+    }
 
-      $id = $_GET['id'];
-
-      // créer une requête SELECT pour récupérer les données de l'article
-      $db = Db::getInstance();
-      $requete = $db->prepare("SELECT titre, description_article, date_article FROM article WHERE id = :id");
-      $requete->bindValue(':id', $id, PDO::PARAM_INT);
-      $requete->execute();
-      $result = $requete->fetch();
-
-      // stocker les données récupérées dans des variables
-      $title = $result['titre'];
-      $content = $result['description_article'];
-      $date = $result['date_article'];
-
-      $requete=$db->prepare("UPDATE article
-                SET titre =:titre, description_article = :description_article, date_article = :date_article
-                WHERE id=:id");
-                $id = $_GET["id"];
-                $title = $_POST["titre"];
-                $content = $_POST["description"];
-                $date= $_POST["date"];
-
-        $requete->bindValue(':titre',$title, PDO::PARAM_STR);
-        $requete->bindValue(':description_article',$content, PDO::PARAM_STR);
-        $requete->bindValue(':date_article',$date, PDO::PARAM_STR);
-        $requete->bindValue(':id',$id, PDO::PARAM_INT);
-
-        $requete->execute();
-
-        $post = new Post($id, $title, $content, $date);
-        return $post; 
+    public function setDate_article($date){
+        $this->_date=$date;
+    }
 
   }
-}
 ?>

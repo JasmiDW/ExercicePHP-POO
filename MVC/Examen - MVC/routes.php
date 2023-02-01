@@ -22,7 +22,7 @@ on veut interroger la bdd et afficher les résultats, aller chercher la listes d
       break;
       case 'posts':
         // we need the model to query the database later in the controller
-        require_once('models/post.php');
+        require_once('models/post_manager.php');
         $controller = new PostsController();
       break;
     }

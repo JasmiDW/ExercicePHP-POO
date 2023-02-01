@@ -12,8 +12,8 @@
     $controller = $_GET['controller'];
     $action     = $_GET['action'];
   } else {
-    $controller = 'pages';
-    $action     = 'home';
+    $controller = 'posts';
+    $action     = 'index';
   }
   //on appelle la seule partie de l'application qui ne change pas : le layout.
   require_once('views/layout.php');
