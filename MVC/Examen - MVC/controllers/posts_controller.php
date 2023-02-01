@@ -51,7 +51,7 @@ Post::all() et Post::find() font référence au modèle Post donc quand on va ch
           }
       }
 
-      $title= $post ->getTitle();
+      $title= $post ->getTitre();
       require_once('views/posts/add_traitement.php');
     }
 

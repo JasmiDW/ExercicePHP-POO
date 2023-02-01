@@ -53,14 +53,14 @@ require_once('post.php');
         $title = $_POST["titre"];
         $content = $_POST["description"];
         $date = $_POST["date"];
-        $query=$db->prepare("INSERT INTO article (titre, description_article,date_article, id_user) 
-          VALUES(:titre,:description_article, :date_article, :id_user)");
+        $query=$db->prepare("INSERT INTO article (titre, description_article,date_article) 
+          VALUES(:titre,:description_article, :date_article)");
           $id= $_POST["id_user"];
           //On indique les bindValue du nom et du mot de passe
           $query->bindValue(':titre',$title,PDO::PARAM_STR);
           $query->bindValue(':description_article',$content);
           $query->bindValue(':date_article',$date,PDO::PARAM_STR);
-          $query->bindValue(':id_user',$id,PDO::PARAM_INT);
+
           $query->execute();
 
         $post = new Post($id, $title, $content, $date);
