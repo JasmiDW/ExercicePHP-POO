@@ -2,5 +2,5 @@
 <p><a href="?controller=posts&action=index">Retour à la liste des articles</a></p>
 
     <?php 
-        echo "La pratique $title a bien été modifiée";
+        echo "La pratique $title a bien été ajoutée";
     ?>
