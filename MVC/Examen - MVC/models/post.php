@@ -12,7 +12,7 @@
     public function __construct($value = array()){
       if(!empty($value))
       $this->hydrate($value);
-    }
+  }
 
   public function hydrate($donnees){
       foreach ($donnees as $key => $value){

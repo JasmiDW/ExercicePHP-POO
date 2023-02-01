@@ -3,4 +3,3 @@ ici on utilise les variables prédéfinies précédemment pour signaler la bonne
 
 
 <h1>Vos bonnes pratiques</h1>
-
