@@ -1,0 +1,15 @@
+{
+    "name": "djoul/isfac",
+    "autoload": {
+        "psr-4": {
+            "Djoul\\Isfac\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "JasmiDW",
+            "email": "117347250+JasmiDW@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
