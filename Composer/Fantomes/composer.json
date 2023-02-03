@@ -1,0 +1,18 @@
+{
+    "name": "djoul/fantomes",
+    "autoload": {
+        "psr-4": {
+            "Djoul\\Fantomes\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "JasmiDW",
+            "email": "117347250+JasmiDW@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.5",
+        "fakerphp/faker": "^1.21"
+    }
+}
